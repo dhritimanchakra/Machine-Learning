@@ -26,6 +26,7 @@ class Generator(nn.Module):
         super(Generator,self).__init__()
         self.network=nn.Sequential(
             nn.Linear(input_dim,hidden_dim),
+            nn.Linear(hidden_dim,hidden_dim),
             nn.BatchNorm1d(hidden_dim),
             nn.ReLU(),
             nn.Linear(hidden_dim,hidden_dim*2),
