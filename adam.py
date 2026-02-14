@@ -47,7 +47,7 @@ class Adam:
             with torch.no_grad():
                 p.data = p.data - lr * m_hat / (v_hat.sqrt() + eps)
 
-def train(model,optimizer,loss_fct=torch.nn.NLLLoss(),nb_epochs=5,batch_size=128):
+def train(model,optimizer):
     testing_accuracy=[]
     for epoch in range(nb_epochs):
         indices = torch.randperm(trainX.shape[0])[:batch_size]
